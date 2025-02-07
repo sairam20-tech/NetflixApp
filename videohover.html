@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video on Hover</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .movie-item {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .movie-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+<div class="movie-item">
+    <!-- Poster Image -->
+    <img src="images\salaar_final.jpg" alt="Movie Poster">
+    
+    <!-- Preview Video -->
+    <video muted>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+    // Select the container and its elements
+    const movieItem = document.querySelector('.movie-item');
+    const video = movieItem.querySelector('video');
+    const image = movieItem.querySelector('img');
+
+    // Add event listeners for hover
+    movieItem.addEventListener('mouseover', () => {
+        image.style.display = 'none'; // Hide the image
+        video.style.display = 'block'; // Show the video
+        video.play(); // Play the video
+    });
+
+    movieItem.addEventListener('mouseout', () => {
+        video.pause(); // Pause the video
+        video.style.display = 'none'; // Hide the video
+        image.style.display = 'block'; // Show the image
+    });
+</script>
+
+</body>
+</html>

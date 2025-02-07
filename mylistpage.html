@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Reset some default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #141414;
+            padding: 15px;
+        }
+
+        .navbar .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: red;
+            text-decoration: none; /* Remove underline */
+        }
+
+       
+
+        .my-list-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 80px; /* Adjust to avoid overlap with the fixed navbar */
+        }
+
+        .movie-item {
+            margin: 20px;
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+            position: relative;
+        }
+
+        .movie-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .movie-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: white;
+        }
+
+        .remove-btn {
+            margin-top: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .remove-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Netflix2Clone.html">NETFLIX</a>
+        </div>
+    </nav>
+
+    <!-- My List Container -->
+    <div class="container">
+        <h1 class="my-4 text-white">My List</h1>
+        <div id="myListContainer" class="my-list-container">
+            <!-- Movies added to the list will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to load the list of movies from localStorage and display them
+        window.onload = function () {
+            const myList = JSON.parse(localStorage.getItem('myList')) || [];
+            const myListContainer = document.getElementById('myListContainer');
+
+            // Render the movie list
+            renderMovies(myList);
+
+            // Function to render movies
+            function renderMovies(movies) {
+                myListContainer.innerHTML = ''; // Clear existing movies
+                movies.forEach((movie, index) => {
+                    const movieElement = document.createElement('div');
+                    movieElement.classList.add('movie-item');
+                    
+                    movieElement.innerHTML = `
+                        <a href="${movie.videoLink}">
+                            <img src="${movie.poster}" alt="${movie.title}" class="img-fluid">
+                        </a>
+                        <p class="movie-title">${movie.title}</p>
+                        <button class="remove-btn" onclick="removeMovie(${index})">Remove</button>
+                    `;
+
+                    myListContainer.appendChild(movieElement);
+                });
+            }
+
+            // Function to remove a movie
+            window.removeMovie = function (index) {
+                myList.splice(index, 1); // Remove the movie from the list
+                localStorage.setItem('myList', JSON.stringify(myList)); // Update localStorage
+                renderMovies(myList); // Re-render the updated list
+            };
+        };
+    </script>
+</body>
+</html>

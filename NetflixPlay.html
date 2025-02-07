@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - Netflix Clone</title>
+    <link rel="stylesheet" href="Netflix2Clone.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #000;
+        }
+
+        .header a {
+            color: #e00c0c;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .movie-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .movie-details {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+        }
+
+        .movie-details img {
+            border-radius: 10px;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .movie-info {
+            max-width: 800px;
+        }
+
+        .movie-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .movie-meta {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+
+        .movie-description {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .play-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .play-button:hover {
+            background-color: #f40612;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <a href="Netflix2Clone.html">NETFLIX</a>
+</div>
+
+<div class="movie-container">
+    <div class="movie-details">
+        <img id="movie-poster" src="images/salaar_final.jpg" alt="Movie Poster">
+        <div class="movie-info">
+            <h1 id="movie-title">Salaar</h1>
+            <div id="movie-meta" class="movie-meta">Part 1 : Cease Fire</div>
+            <p id="movie-description" class="movie-description">One man against all Evels</p>
+            <a id="play-now-button" href="#" class="play-button" target="_blank">Play Now</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the query string from the URL
+const urlParams = new URLSearchParams(window.location.search);
+
+// Retrieve parameters
+const movieTitle = urlParams.get('movie-title');
+const genre = urlParams.get('genre');
+const year = urlParams.get('year');
+const duration = urlParams.get('duration');
+const description = urlParams.get('description');
+const poster = urlParams.get('poster');
+const youtubeLink = urlParams.get('youtube-link');
+
+// Update the page dynamically
+if (movieTitle) {
+    document.getElementById('movie-title').textContent = movieTitle;
+
+    // Update metadata
+    const metaContent = `Released: ${year || 'Unknown'} | Genre: ${genre || 'Unknown'} | Duration: ${duration || 'Unknown'}`;
+    document.getElementById('movie-meta').textContent = metaContent;
+
+    // Update description
+    document.getElementById('movie-description').textContent = description || 'Description not available.';
+
+    // Update poster if available
+    const posterElement = document.getElementById('movie-poster');
+    if (poster) {
+        posterElement.src = poster; // Use the poster parameter directly
+        posterElement.alt = movieTitle;
+    } else {
+        posterElement.src = 'images/placeholder.jpg'; // Provide a fallback image
+        posterElement.alt = 'Placeholder Image';
+    }
+    const playNowButton = document.getElementById('play-now-button');
+    if (youtubeLink) {
+        playNowButton.href = youtubeLink;
+        playNowButton.target = '_blank'; // Open YouTube link in a new tab
+    } else {
+        playNowButton.href = '#';
+        playNowButton.onclick = () => alert('No video link provided.');
+        }
+} else {
+    document.getElementById('movie-title').textContent = "Movie not found.";
+    document.getElementById('movie-meta').textContent = "No metadata available.";
+    document.getElementById('movie-description').textContent = "Please select a movie from the homepage.";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Netflix Clone</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="Netflix2Clone.css">
+    </head>
+    <body>
+        <div id="infoMessage" class="info-message" style="display: none; position: fixed; top: 0; left: 0; width: 100%; background-color: black; color: white; text-align: center; padding: 10px;">
+            Movie added to My List.
+        </div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">NETFLIX </a> 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="home-link">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#series">SERIES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#trending-now">TRENDING NOW</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#new-popular">NEW & POPULAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#my-list">MY LIST</a>
+                        </li>
+                        <!-- Search Icon and Input -->
+                         <li class="nav-item d-flex align-items-center">
+                            <input id="search-input" type="text" class="form-control" placeholder="Search Movies..." style="width: 250px;" />
+                            <button class="btn btn-light ms-2" onclick="searchMovies()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Banner Section -->
+        <header class="banner" style="background-image: url('file:///C:/Users/ajmankaar.sairam/OneDrive%20-%20Scientific%20Games%20Corporation/Pictures/Camera%20Roll/salaar-26.webp');">
+            <div class="banner-content">
+                <h1>Original Series</h1>
+                <p>Watch your favorite shows now.</p>
+                <button class="btn btn-danger">Play</button>
+                <button onclick="window.location.href='mylistpage.html'" class="btn btn-light" >My List</button> 
+            </div>
+        </header>
+    
+        <!-- Movie Row Section -->
+        <div class="container-fluid movie-row" id="trending-now">
+            <h2>TRENDING NOW</h2>
+            <div class="row">
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="RRR">
+                    <a href="NetflixPlay.html?movie-title=RRR&genre=Action&year=2022&duration=2h50m&description=A+HighAction+Freedom+with+a+FriendShipStory&poster=images\RRR_Poster.jpg&youtube-link=https://www.youtube.com/watch?v=NgBoMJy386M">
+                        <img src="images\RRR_Poster.jpg" alt="RRR" class="img-fluid">
+                        <video class="movie-video" muted loop
+                        onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)" >
+                            <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                            
+                        </video>
+                    </a>
+                    <p class="movie-title">RRR</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('RRR')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Vikram">
+                    <a href="NetflixPlay.html?movie-title=Vikram&genre=Police Action&year=2022&duration=2h50m&description=a+retired+police+officer+who+returns+to+the+field+to+protect+his+family+and+the+public&poster=images\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=OKBMCL-frPU">
+                        <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Vikram" class="img-fluid">
+                    <video class="movie-video" muted loop
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\y2mate.com - Heart Stealing Perfection  Lokesh Kanagaraj  Rolex  Vikram  DisneyPlus Hotstar_720pHF.mp4" type="video/mp4">
+                        
+                    </video>
+                        
+                    </a>
+                    <p class="movie-title">Vikram</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Vikram')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Devera">
+                    <a href="NetflixPlay.html?movie-title=Devera&genre=Action&year=2022&duration=2h50m&description=Devara+chieftain+of+a+coastal+village,+who+feuds+with+his+counterpart+Bhaira+over+arms+smuggling+through+the+Red+Sea&poster=MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=mmKIkTLRZao">
+                    <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Devara" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                        
+                    </video>
+                    </a>
+                    <p class="movie-title">Devera</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Devera')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Salaar" style="position: relative;">
+                    <a href="NetflixPlay.html?movie-title=Salaar&genre=Action&year=2022&duration=2h50m&description=A+high-octane+thriller+with+a+stellar+cast&poster=images/salaar_final.jpg&youtube-link=https://www.youtube.com/watch?v=9Im1q4gvk1M">
+                    <img src="images\salaar_final.jpg" alt="Salaar Poster" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback.mp4" type="video/mp4">
+                        
+                    </video>
+                    
+                    </a>
+                    <p class="movie-title">Salaar</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Salaar')">Add to My List</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Series Section -->
+        <div class="container-fluid movie-row" id="series">
+            <h2>Popular Series</h2>
+            <div class="row">
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="RRR">
+                    <a href="NetflixPlay.html?movie-title=RRR&genre=Action&year=2022&duration=2h50m&description=A+HighAction+Freedom+with+a+FriendShipStory&poster=images\RRR_Poster.jpg&youtube-link=https://www.youtube.com/watch?v=NgBoMJy386M">
+                        <img src="images\RRR_Poster.jpg" alt="RRR" class="img-fluid">
+                        <video class="movie-video" muted loop
+                        onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)" >
+                            <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                            
+                        </video>
+                    </a>
+                    <p class="movie-title">RRR</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('RRR')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Vikram">
+                    <a href="NetflixPlay.html?movie-title=Vikram&genre=Police Action&year=2022&duration=2h50m&description=a+retired+police+officer+who+returns+to+the+field+to+protect+his+family+and+the+public&poster=images\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=OKBMCL-frPU">
+                        <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Vikram" class="img-fluid">
+                    <video class="movie-video" muted loop
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\y2mate.com - Heart Stealing Perfection  Lokesh Kanagaraj  Rolex  Vikram  DisneyPlus Hotstar_720pHF.mp4" type="video/mp4">
+                        
+                    </video>
+                        
+                    </a>
+                    <p class="movie-title">Vikram</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Vikram')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Devera">
+                    <a href="NetflixPlay.html?movie-title=Devera&genre=Action&year=2022&duration=2h50m&description=Devara+chieftain+of+a+coastal+village,+who+feuds+with+his+counterpart+Bhaira+over+arms+smuggling+through+the+Red+Sea&poster=MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=mmKIkTLRZao">
+                    <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Devara" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                        
+                    </video>
+                    </a>
+                    <p class="movie-title">Devera</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Devera')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Salaar" style="position: relative;">
+                    <a href="NetflixPlay.html?movie-title=Salaar&genre=Action&year=2022&duration=2h50m&description=A+high-octane+thriller+with+a+stellar+cast&poster=images/salaar_final.jpg&youtube-link=https://www.youtube.com/watch?v=9Im1q4gvk1M">
+                    <img src="images\salaar_final.jpg" alt="Salaar Poster" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback.mp4" type="video/mp4">
+                        
+                    </video>
+                    
+                    </a>
+                    <p class="movie-title">Salaar</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Salaar')">Add to My List</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- New & Popular Section -->
+        <div class="container-fluid movie-row" id="new-popular">
+            <h2>New & Popular</h2>
+            <div class="row">
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="RRR">
+                    <a href="NetflixPlay.html?movie-title=RRR&genre=Action&year=2022&duration=2h50m&description=A+HighAction+Freedom+with+a+FriendShipStory&poster=images\RRR_Poster.jpg&youtube-link=https://www.youtube.com/watch?v=NgBoMJy386M">
+                        <img src="images\RRR_Poster.jpg" alt="RRR" class="img-fluid">
+                        <video class="movie-video" muted loop
+                        onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)" >
+                            <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                            
+                        </video>
+                    </a>
+                    <p class="movie-title">RRR</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('RRR')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Vikram">
+                    <a href="NetflixPlay.html?movie-title=Vikram&genre=Police Action&year=2022&duration=2h50m&description=a+retired+police+officer+who+returns+to+the+field+to+protect+his+family+and+the+public&poster=images\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=OKBMCL-frPU">
+                        <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Vikram" class="img-fluid">
+                    <video class="movie-video" muted loop
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\y2mate.com - Heart Stealing Perfection  Lokesh Kanagaraj  Rolex  Vikram  DisneyPlus Hotstar_720pHF.mp4" type="video/mp4">
+                        
+                    </video>
+                        
+                    </a>
+                    <p class="movie-title">Vikram</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Vikram')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Devera">
+                    <a href="NetflixPlay.html?movie-title=Devera&genre=Action&year=2022&duration=2h50m&description=Devara+chieftain+of+a+coastal+village,+who+feuds+with+his+counterpart+Bhaira+over+arms+smuggling+through+the+Red+Sea&poster=MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=mmKIkTLRZao">
+                    <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Devara" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                        
+                    </video>
+                    </a>
+                    <p class="movie-title">Devera</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Devera')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Salaar" style="position: relative;">
+                    <a href="NetflixPlay.html?movie-title=Salaar&genre=Action&year=2022&duration=2h50m&description=A+high-octane+thriller+with+a+stellar+cast&poster=images/salaar_final.jpg&youtube-link=https://www.youtube.com/watch?v=9Im1q4gvk1M">
+                    <img src="images\salaar_final.jpg" alt="Salaar Poster" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback.mp4" type="video/mp4">
+                        
+                    </video>
+                    
+                    </a>
+                    <p class="movie-title">Salaar</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Salaar')">Add to My List</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- My List Section -->
+        <div class="container-fluid movie-row" id="my-list">
+            <h2>My List</h2>
+            <div class="row">
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="RRR">
+                    <a href="NetflixPlay.html?movie-title=RRR&genre=Action&year=2022&duration=2h50m&description=A+HighAction+Freedom+with+a+FriendShipStory&poster=images\RRR_Poster.jpg&youtube-link=https://www.youtube.com/watch?v=NgBoMJy386M">
+                        <img src="images\RRR_Poster.jpg" alt="RRR" class="img-fluid">
+                        <video class="movie-video" muted loop
+                        onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)" >
+                            <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                            
+                        </video>
+                    </a>
+                    <p class="movie-title">RRR</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('RRR')">Add to My List</button>
+                </div>
+                <!--<div class="col-3 movie-item" data-title="Vikram">
+                    <a href="NetflixPlay.html?movie-title=Vikram&genre=Police Action&year=2022&duration=2h50m&description=a+retired+police+officer+who+returns+to+the+field+to+protect+his+family+and+the+public&poster=images\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=OKBMCL-frPU">
+                    <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Vikram" class="img-fluid">
+                    
+                    </a>
+                    <p class="movie-title">Vikram</p>
+                </div> !-->
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Vikram">
+                    <a href="NetflixPlay.html?movie-title=Vikram&genre=Police Action&year=2022&duration=2h50m&description=a+retired+police+officer+who+returns+to+the+field+to+protect+his+family+and+the+public&poster=images\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=OKBMCL-frPU">
+                        <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BM2UzNzc4YjctOGNjYy00NTg2LTllZjctNDVlZGNjZjM1ZGYwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Vikram" class="img-fluid">
+                    <video class="movie-video" muted loop
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\y2mate.com - Heart Stealing Perfection  Lokesh Kanagaraj  Rolex  Vikram  DisneyPlus Hotstar_720pHF.mp4" type="video/mp4">
+                        
+                    </video>
+                        
+                    </a>
+                    <p class="movie-title">Vikram</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Vikram')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item"
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Devera">
+                    <a href="NetflixPlay.html?movie-title=Devera&genre=Action&year=2022&duration=2h50m&description=Devara+chieftain+of+a+coastal+village,+who+feuds+with+his+counterpart+Bhaira+over+arms+smuggling+through+the+Red+Sea&poster=MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg&youtube-link=https://www.youtube.com/watch?v=mmKIkTLRZao">
+                    <img src="C:\Users\ajmankaar.sairam\OneDrive - Scientific Games Corporation\Pictures\Camera Roll\MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc@._V1_QL75_UX480_.jpg" alt="Devara" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback (1).mp4" type="video/mp4">
+                        
+                    </video>
+                    </a>
+                    <p class="movie-title">Devera</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Devera')">Add to My List</button>
+                </div>
+                <div class="col-3 movie-item" 
+                onmouseover="playVideo(this)" 
+                onmouseout="pauseVideo(this)" data-title="Salaar" style="position: relative;">
+                    <a href="NetflixPlay.html?movie-title=Salaar&genre=Action&year=2022&duration=2h50m&description=A+high-octane+thriller+with+a+stellar+cast&poster=images/salaar_final.jpg&youtube-link=https://www.youtube.com/watch?v=9Im1q4gvk1M">
+                    <img src="images\salaar_final.jpg" alt="Salaar Poster" class="img-fluid">
+                    <video class="movie-video" muted loop 
+                    onmouseover="playVideo(this)" 
+                    onmouseout="pauseVideo(this)">
+                        <source src="images\Videos\videoplayback.mp4" type="video/mp4">
+                        
+                    </video>
+                    
+                    </a>
+                    <p class="movie-title">Salaar</p>
+                    <button class="btn btn-outline-light btn-sm add-to-list" onclick="addToList('Salaar')">Add to My List</button>
+                </div>
+            </div>
+        </div>
+        
+    
+        <!-- Footer -->
+        <footer class="footer bg-dark text-white text-center py-3">
+            <p>CREATED BY SURYA</p>
+        </footer>
+    
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn" class="btn btn-dark" title="Go to top" onclick="scrollToTop()">↑</button>
+    
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+     
+        <!-- Custom JavaScript -->
+        <script>
+
+            // Smooth Scroll for Navbar links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default behavior (jumping to section)
+            
+                    // Get the target section ID from the link's href (e.g., "#series" becomes "series")
+                    const targetId = link.getAttribute('href').substring(1);
+            
+                    // Get the target element (section) based on the target ID
+                    const targetElement = document.getElementById(targetId);
+            
+                    // Smoothly scroll to the target section
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60, // Adjust for the fixed navbar height (60px)
+                        behavior: 'smooth'
+                    });
+                });
+            });
+    
+            // Make the Home link scroll to the top of the page
+            const homeLink = document.getElementById("home-link");
+            homeLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default action
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+    
+            // Scroll to Top Button functionality
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', function() {
+                const searchQuery = searchInput.value.toLowerCase();
+                const movieItems = document.querySelectorAll('.movie-item');
+
+        movieItems.forEach(item => {
+            const title = item.getAttribute('data-title').toLowerCase();
+            // If the movie title includes the search query, show it, otherwise hide it
+            if (title.includes(searchQuery)) {
+                item.style.display = 'block';  // Show the movie item
+            } else {
+                item.style.display = 'none';  // Hide the movie item
+            }
+        });
+    });
+
+    // Optional: If you want to clear the search input and reset the movie list
+    searchInput.addEventListener('focus', function() {
+        if (searchInput.value === '') {
+            const movieItems = document.querySelectorAll('.movie-item');
+            movieItems.forEach(item => {
+                item.style.display = 'block';  // Reset all movie items to show
+            });
+        }
+    });
+    // Select the container and its elements
+    const movieItem = document.querySelector('.movie-item');
+    const video = movieItem.querySelector('video');
+    const image = movieItem.querySelector('img');
+
+    // Add event listeners for hover
+    movieItem.addEventListener('mouseover', () => {
+        image.style.display = 'none'; // Hide the image
+        video.style.display = 'block'; // Show the video
+        video.play(); // Play the video
+    });
+
+    movieItem.addEventListener('mouseout', () => {
+        video.pause(); // Pause the video
+        video.style.display = 'none'; // Hide the video
+        image.style.display = 'block'; // Show the image
+    });
+
+    function playVideo(element) {
+        var video = element.querySelector('.movie-video');
+        if (video) {
+            video.style.display = "block"; // Ensure it's visible
+            video.play();
+        } else {
+            console.error("Video element not found!");
+        }
+    }
+
+    // Pause video on mouse out
+    function pauseVideo(element) {
+        var video = element.querySelector('.movie-video');
+        if (video) {
+            video.pause();
+            video.style.display = "none"; // Hide the video
+        } else {
+            console.error("Video element not found!");
+        }
+    }
+    function addToList(movieTitle) {
+            const movieElement = document.querySelector(`.movie-item[data-title="${movieTitle}"]`);
+            if (!movieElement) {
+                console.error(`Movie with title "${movieTitle}" not found!`);
+                return;
+            }
+
+            const movie = {
+                title: movieTitle,
+                poster: movieElement.querySelector('img').src,
+                videoLink: movieElement.querySelector('a').href
+            };
+
+            let myList = JSON.parse(localStorage.getItem('myList')) || [];
+
+            if (!myList.some(movie => movie.title === movieTitle)) {
+                myList.push(movie);
+                localStorage.setItem('myList', JSON.stringify(myList));
+
+                // Show the info message
+                const infoMessage = document.getElementById('infoMessage');
+                infoMessage.textContent = `${movieTitle} has been added to My List.`;
+                infoMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    infoMessage.style.display = 'none';
+                }, 3500);
+            } else {
+                const infoMessage = document.getElementById('infoMessage');
+                infoMessage.textContent = `${movieTitle} is already in My List.`;
+                infoMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    infoMessage.style.display = 'none';
+                }, 3500);
+            }
+        }
+        </script>
+    </body>
+    </html>
+    
+   

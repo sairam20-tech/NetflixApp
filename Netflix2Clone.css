@@ -1,0 +1,192 @@
+/* Reset some default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #141414;
+    padding: 15px;
+}
+
+.navbar .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
+}
+
+/* Banner Section */
+.banner {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    text-align: left;
+    padding: 20px;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.banner-content .btn {
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+/* Movie Rows */
+.movie-row {
+    padding: 40px 0;
+    background-color: #141414;
+    color: white;
+}
+
+.movie-row h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.movie-row .row img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.movie-row .row img:hover {
+    transform: scale(0.8);
+} 
+
+
+.movie-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-item img {
+    display: block;
+    width: 100%;
+}
+
+
+
+.movie-item:hover img {
+    display: none; /* Hide image on hover */
+}
+
+
+.movie-item {
+    position: relative;
+}
+
+.movie-item .video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.movie-item .movie-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Hidden by default */
+}
+
+.movie-item:hover .movie-video {
+    display: block; /* Make it visible on hover */
+}
+.movie-item {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.movie-title {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.add-to-list {
+    margin-top: 50px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold; /* Makes the text bold */
+}
+.add-to-list {
+    position: absolute; /* Make it position relative to its parent container */
+    bottom: -4px; /* Set a distance from the bottom of the container */
+    left: 50%; /* Horizontally center the button */
+    transform: translateX(-50%); /* Fine-tunes the centering */
+    font-size: 10px;
+    z-index: 2; /* Ensure the button appears above other elements */
+}
+/* Info Message */
+.info-message {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    z-index: 9999; /* Ensure it's on top of other elements */
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for a subtle effect */
+}
+
+/* Info Message transition effect */
+.info-message.show {
+    display: block; /* Show the message */
+    animation: fadeIn 0.5s ease, fadeOut 0.5s 3s ease; /* Fade-in and fade-out effect */
+}
+
+/* Animation for fading in the message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation for fading out the message */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+/* Footer */
+.footer {
+    background-color: #141414;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
